@@ -8,18 +8,34 @@ return require('packer').startup(function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  --lsp stuff
+	use {
+		'neovim/nvim-lspconfig',
+		'williamboman/nvim-lsp-installer',
+	}
+
   -- Nvim Tree
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icon
-    },
-    config = function() require'nvim-tree'.setup {} end
+    }
   }
 
+  -- temp colorscheme
   use {
 	  'wuelnerdotexe/vim-enfocado'
   }
+
+  use {
+      'windwp/nvim-ts-autotag',
+      'JoosepAlviste/nvim-ts-context-commentstring',
+      'nvim-treesitter/nvim-treesitter-refactor',
+  }
+  use({
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
+  })
 
   if packer_bootstrap then
     require('packer').sync()

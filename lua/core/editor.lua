@@ -25,7 +25,7 @@ opt.smartindent = true
 opt.tabstop = indent
 opt.softtabstop = indent
 opt.shiftwidth = indent
-opt.expandtab = false 
+opt.expandtab = false
 
 -- search
 opt.wildmenu = true
@@ -36,14 +36,14 @@ opt.hlsearch = false
 
 -- ui
 opt.number = true
-opt.rnu = false 
+opt.rnu = false
 opt.cursorline = true
 opt.signcolumn = 'yes'
 opt.laststatus = 2
 opt.wrap = false
 opt.scrolloff = 18
 opt.sidescrolloff = 3 -- Lines to scroll horizontally
-opt.list = true
+opt.list = false
 opt.listchars = {
   tab = '❘-',
   trail = '·',
@@ -74,5 +74,5 @@ opt.redrawtime = 1500
 opt.ttimeoutlen = 10
 
 -- theme
-opt.termguicolors = true
+-- opt.termguicolors = true
 

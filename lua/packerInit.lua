@@ -17,6 +17,10 @@ return require('packer').startup(function()
     config = function() require'nvim-tree'.setup {} end
   }
 
+  use {
+	  'wuelnerdotexe/vim-enfocado'
+  }
+
   if packer_bootstrap then
     require('packer').sync()
   end

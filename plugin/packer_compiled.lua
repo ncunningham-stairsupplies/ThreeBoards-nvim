@@ -84,6 +84,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nathanael/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
+  },
+  ["vim-enfocado"] = {
+    loaded = true,
+    path = "/home/nathanael/.local/share/nvim/site/pack/packer/start/vim-enfocado",
+    url = "https://github.com/wuelnerdotexe/vim-enfocado"
   }
 }
 

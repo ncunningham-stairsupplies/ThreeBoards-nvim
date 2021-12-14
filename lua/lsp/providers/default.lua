@@ -10,7 +10,7 @@ local config = {
 				format = false,
 			},
 			tsserver = {
-				format = true,
+				format = false,
 			},
 			sumneko_lua = {
 				format = false,

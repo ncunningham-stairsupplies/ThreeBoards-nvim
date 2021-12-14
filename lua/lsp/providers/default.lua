@@ -3,7 +3,7 @@ local M = {}
 -- we can use this at some point to configure servers i think
 local config = {
 	lsp = {
-		format_on_save = true,
+		format_on_save = false,
 
 		servers = {
 			tsserver = {

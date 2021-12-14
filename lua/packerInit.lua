@@ -11,7 +11,16 @@ return require('packer').startup(function()
   --lsp stuff
 	use {
 		'neovim/nvim-lspconfig',
-		'williamboman/nvim-lsp-installer',
+		requires = {
+		  { 'williamboman/nvim-lsp-installer' },
+		},
+	}
+
+	use {
+		'jose-elias-alvarez/nvim-lsp-ts-utils',
+		requires = {
+			'nvim-lua/plenary.nvim',
+		}
 	}
 
   -- Nvim Tree
@@ -32,9 +41,55 @@ return require('packer').startup(function()
       'JoosepAlviste/nvim-ts-context-commentstring',
       'nvim-treesitter/nvim-treesitter-refactor',
   }
+
+  use({
+    'CosmicNvim/cosmic-ui',
+    requires = {
+      'MunifTanjim/nui.nvim',
+      'nvim-lua/plenary.nvim',
+      'ray-x/lsp_signature.nvim',
+    },
+    config = function()
+      require('plugins.cosmic-ui')
+    end,
+    after = 'nvim-lspconfig',
+  })
+
   use({
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
+  })
+
+	use({
+    'hrsh7th/nvim-cmp',
+    config = function()
+      require('cosmic-ui').setup_autocomplete()
+    end,
+    requires = {
+      { 'onsails/lspkind-nvim' },
+      {
+        'L3MON4D3/LuaSnip',
+        config = function()
+          require('plugins.luasnip')
+        end,
+        requires = {
+          'rafamadriz/friendly-snippets',
+        },
+      },
+      { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' },
+      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      {
+        'windwp/nvim-autopairs',
+        config = function()
+          require('plugins.auto-pairs')
+        end,
+        after = 'nvim-cmp',
+      },
+    },
+    event = 'InsertEnter',
   })
 
   if packer_bootstrap then

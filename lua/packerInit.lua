@@ -75,19 +75,6 @@ return require("packer").startup(function()
 	})
 
 	use({
-		"CosmicNvim/cosmic-ui",
-		requires = {
-			"MunifTanjim/nui.nvim",
-			"nvim-lua/plenary.nvim",
-			"ray-x/lsp_signature.nvim",
-		},
-		config = function()
-			require("plugins.cosmic-ui")
-		end,
-		after = "nvim-lspconfig",
-	})
-
-	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = ":TSUpdate",
 	})
@@ -95,7 +82,7 @@ return require("packer").startup(function()
 	use({
 		"hrsh7th/nvim-cmp",
 		config = function()
-			require("cosmic-ui").setup_autocomplete()
+			require("plugins.nvim-cmp")
 		end,
 		requires = {
 			{ "onsails/lspkind-nvim" },

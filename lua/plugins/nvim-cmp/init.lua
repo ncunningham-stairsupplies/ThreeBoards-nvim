@@ -1,13 +1,12 @@
 local cmp = require("cmp")
 
-cmp.setup({
-	snippet = {
-		-- REQUIRED - you must specify a snippet engine
-		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
-		end,
-	},
-	formatting = {
+local get_formatting = function()
+	local ok, _ = pcall(require, "lspkind")
+	if not ok then
+		return {}
+	end
+
+	return {
 		format = require("lspkind").cmp_format({
 			with_text = true,
 			menu = {
@@ -18,8 +17,11 @@ cmp.setup({
 				luasnip = "[snip]",
 			},
 		}),
-	},
-	mapping = {
+	}
+end
+
+local get_mapping = function()
+	return {
 		["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-4), { "i", "c" }),
 		["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(4), { "i", "c" }),
 		["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
@@ -31,14 +33,23 @@ cmp.setup({
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<CR>"] = cmp.mapping.confirm({ select = true }),
+	}
+end
+
+cmp.setup({
+	snippet = {
+		-- REQUIRED - you must specify a snippet engine
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
 	},
+	formatting = get_formatting(),
+	mapping = get_mapping(),
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
-		{ name = "vsnip" }, -- For vsnip users.
-		-- { name = 'luasnip' }, -- For luasnip users.
-		-- { name = 'ultisnips' }, -- For ultisnips users.
-		-- { name = 'snippy' }, -- For snippy users.
-	}, {
+		{ name = "nvim_lua" },
 		{ name = "buffer" },
+		{ name = "luasnip" },
+		{ name = "path" },
 	}),
 })

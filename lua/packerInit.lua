@@ -51,6 +51,10 @@ return require("packer").startup(function()
 		after = "nvim-lspconfig",
 	})
 
+	use({
+		"nvim-telescope/telescope.nvim",
+		requires = { { "nvim-lua/plenary.nvim" } },
+	})
 	-- Nvim Tree
 	use({
 		"kyazdani42/nvim-tree.lua",

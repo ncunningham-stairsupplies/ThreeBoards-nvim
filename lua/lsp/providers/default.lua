@@ -25,9 +25,7 @@ local config = {
 local auto_format_lock = false
 
 function config.lsp.can_client_format(client_name)
-	print(client_name)
 	if config.lsp.servers[client_name] then
-		print(config.lsp.servers[client_name].format)
 		return config.lsp.servers[client_name].format
 	end
 

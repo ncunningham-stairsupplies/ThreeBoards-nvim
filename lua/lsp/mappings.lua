@@ -1,13 +1,14 @@
 local map = require("utils").map
 
 --map("n", "<leader>ll", "<cmd>lua vim.cmd('e'..vim.lsp.get_log_path())<CR>")
+--
 
 -- See `:help vim.lsp.*` for documentation on any of the below functions
---map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
 map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
---map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 map("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 map("n", "<leader>la", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 map("n", "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<CR>")
@@ -20,3 +21,15 @@ map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
 map("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 map("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 map("n", "<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
+local lsp = {
+		definition = {
+			mode = "n",
+			keybind = "gd",
+			command = "",
+		},
+		log = {
+			mode = "n",
+			keybind = "<leader>ll",
+			command = "<cmd>lua vim.cmd('e'..vim.lsp.get_log_path())<CR>",
+		},
+},

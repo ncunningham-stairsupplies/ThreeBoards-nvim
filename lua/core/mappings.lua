@@ -3,12 +3,15 @@ local user_mappings = require("user.mappings")
 
 local core_mappings = {
 	lsp = {
-		--goto_declaration = map("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>"),
-		-- hover = map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>"),
+		definition = {
+			mode = "n",
+			keybind = "gd",
+			command = "",
+		},
 		log = {
 			mode = "n",
 			keybind = "<leader>ll",
-			command = "<cmd>lua vim.lsp.buf.hover()<CR>",
+			command = "<cmd>lua vim.cmd('e'..vim.lsp.get_log_path())<CR>",
 		},
 	},
 	nvim_tree = {},
@@ -17,10 +20,8 @@ local core_mappings = {
 
 local mappings = vim.tbl_deep_extend("force", core_mappings, user_mappings)
 
-for _, group in ipairs(core_mappings) do
-	print(group)
-	for _, binding in ipairs(group) do
-		print(binding)
+for _, group in pairs(mappings) do
+	for _, binding in pairs(group) do
 		map(binding.mode, binding.keybind, binding.command)
 	end
 end

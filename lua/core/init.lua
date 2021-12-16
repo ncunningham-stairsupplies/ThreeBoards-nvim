@@ -1,2 +1,3 @@
-require('core.editor')
-require('core.mappings')
+require("core.editor")
+require("user.editor")
+require("core.mappings")

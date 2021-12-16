@@ -41,7 +41,7 @@ opt.cursorline = true
 opt.signcolumn = "yes"
 opt.laststatus = 2
 opt.wrap = false
-opt.scrolloff = 18
+opt.scrolloff = 6
 opt.sidescrolloff = 3 -- Lines to scroll horizontally
 opt.list = false
 opt.listchars = {
@@ -74,4 +74,4 @@ opt.redrawtime = 1500
 opt.ttimeoutlen = 10
 
 -- theme
--- opt.termguicolors = true
+opt.termguicolors = true

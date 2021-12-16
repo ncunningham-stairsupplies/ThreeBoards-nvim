@@ -4,6 +4,9 @@ local user_mappings = {
 	lsp = {
 		log = { keybind = "<leader>lp" },
 	},
+	poop = {
+		yeet = { keybind = "!!" },
+	},
 	nvim_tree = {},
 	telescope = {},
 }

@@ -80,7 +80,7 @@ local core_mappings = {
 	telescope = {},
 }
 
-local mappings = extend_merge(core_mappings, user_mappings)
+local mappings = extend_merge(core_mappings, user_mappings, { "mode", "keybind", "command" })
 
 for _, group in pairs(mappings) do
 	for _, binding in pairs(group) do

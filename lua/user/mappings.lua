@@ -5,7 +5,11 @@ local user_mappings = {
 		log = { keybind = "<leader>lp" },
 	},
 	poop = {
-		yeet = { keybind = "!!" },
+		yeet = {
+			mode = "n",
+			keybind = "<leader>aa",
+			command = "<cmd>lua vim.notify('poop yeet')<CR>",
+		},
 	},
 	nvim_tree = {},
 	telescope = {},

@@ -2,11 +2,20 @@ local M = {}
 
 function M.map(mode, lhs, rhs, opts)
 	local options = { noremap = true, silent = true }
-	print(mode, lhs, rhs)
 	if opts then
 		options = vim.tbl_extend("force", options, opts)
 	end
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
+end
+
+function M.isGoodBinding(extend_required_keys, binding)
+	local goodBind = true
+	for _, v in pairs(extend_required_keys) do
+		if binding[v] == nil then
+			goodBind = false
+		end
+	end
+	return goodBind
 end
 
 function M.tbl_extend_merge(left, right, extend_required_keys)
@@ -34,25 +43,27 @@ function M.tbl_extend_merge(left, right, extend_required_keys)
 	for groupName, group in pairs(right) do
 		-- Just copy over the right side group if it doesn't exist already
 		if left[groupName] == nil then
-			newTable[groupName] = right[groupName]
+			local goodGroup = true
+			for bindingName, binding in pairs(group) do
+				local goodBind = M.isGoodBinding(extend_required_keys, binding)
+				if goodBind == false then
+					goodGroup = false
+				end
+			end
+			if goodGroup == true then
+				newTable[groupName] = right[groupName]
+			else
+				vim.notify("Keybinding Error. Keys Missing In " .. groupName .. "--" .. bindingName)
+			end
 		else
 			-- Loop through bindings to see if any need to be added
 			for bindingName, binding in pairs(group) do
 				if left[groupName][bindingName] == nil then
-					local goodBind = true
-					print(vim.inspect(extend_required_keys))
-					for _, v in pairs(extend_required_keys) do
-						print(v)
-						print(right[groupName][bindingName][v])
-						if right[groupName][bindingName][v] == nil then
-							goodBind = false
-						end
-					end
-
+					local goodBind = M.isGoodBinding(extend_required_keys, binding)
 					if goodBind then
-						--newTable[groupName][bindingName] = right[groupName][bindingName]
+						newTable[groupName][bindingName] = right[groupName][bindingName]
 					else
-						vim.notify("Error In Keybinding: " .. vim.inspect(right[groupName][bindingName]))
+						vim.notify("Keybinding Error. Keys Missing In " .. groupName .. "--" .. bindingName, 1)
 					end
 				end
 			end

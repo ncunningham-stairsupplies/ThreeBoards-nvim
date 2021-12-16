@@ -2,9 +2,7 @@ local map = require("utils").map
 
 local user_mappings = {
 	lsp = {
-		log = {
-			keybind = "<leader>lp",
-		},
+		log = { keybind = "<leader>lp" },
 	},
 	nvim_tree = {},
 	telescope = {},

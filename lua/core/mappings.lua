@@ -1,4 +1,6 @@
-local map = require("utils").map
+local utils = require("utils")
+local map = utils.map
+local extend_merge = utils.tbl_extend_merge
 local user_mappings = require("user.mappings")
 
 local core_mappings = {
@@ -7,6 +9,11 @@ local core_mappings = {
 			mode = "n",
 			keybind = "gD",
 			command = "<cmd>lua vim.lsp.buf.declaration()<CR>",
+		},
+		log = {
+			mode = "n",
+			keybind = "<leader>ll",
+			command = "<cmd>lua vim.cmd('e'..vim.lsp.get_log_path())<CR>",
 		},
 		definition = {
 			mode = "n",
@@ -73,9 +80,9 @@ local core_mappings = {
 	telescope = {},
 }
 
-local mappings = vim.tbl_extend("force", core_mappings, user_mappings)
+local mappings = extend_merge(core_mappings, user_mappings)
 
-for _, group in pairs(core_mappings) do
+for _, group in pairs(mappings) do
 	for _, binding in pairs(group) do
 		map(binding.mode, binding.keybind, binding.command)
 	end

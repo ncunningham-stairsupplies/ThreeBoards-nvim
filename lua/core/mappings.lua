@@ -73,7 +73,7 @@ local core_mappings = {
 	telescope = {},
 }
 
-local mappings = vim.tbl_deep_extend("force", core_mappings, user_mappings)
+local mappings = vim.tbl_extend("force", core_mappings, user_mappings)
 
 for _, group in pairs(core_mappings) do
 	for _, binding in pairs(group) do

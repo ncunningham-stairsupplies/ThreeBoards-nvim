@@ -14,7 +14,7 @@ M.on_attach = function(client, bufnr)
 	end
 
 	-- Load mappings
-	require("lsp.mappings")
+	--require("lsp.mappings")
 end
 
 return M

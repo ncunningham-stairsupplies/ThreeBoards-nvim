@@ -8,4 +8,5 @@ require("lspconfig").eslint.setup({
 		defaults.on_attach(client, bufnr)
 	end,
 	capabilities = defaults.capabilities,
+	handlers = defaults.handlers,
 })

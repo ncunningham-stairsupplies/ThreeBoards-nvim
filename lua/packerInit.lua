@@ -19,7 +19,6 @@ return require("packer").startup(function()
 	use({
 		"neovim/nvim-lspconfig",
 	})
-
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
@@ -31,7 +30,19 @@ return require("packer").startup(function()
 		run = ":TSUpdate",
 	})
 
-	-- Find Shit
+	-- Autocomplete stuff
+	use({
+		"hrsh7th/nvim-cmp",
+		"hrsh7th/cmp-nvim-lsp",
+		"hrsh7th/cmp-nvim-lua",
+		"hrsh7th/cmp-buffer",
+		"hrsh7th/cmp-path",
+		"hrsh7th/cmp-cmdline",
+		"L3MON4D3/LuaSnip",
+		"saadparwaiz1/cmp_luasnip",
+	})
+
+	-- Find Stuff
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },

@@ -63,6 +63,9 @@ return require("packer").startup(function()
 		},
 	})
 
+	-- status bar
+	use("nvim-lualine/lualine.nvim")
+
 	-- temp colorscheme
 	use({
 		"wuelnerdotexe/vim-enfocado",

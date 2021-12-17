@@ -42,6 +42,9 @@ return require("packer").startup(function()
 		"saadparwaiz1/cmp_luasnip",
 	})
 
+	-- autopairs
+	use("windwp/nvim-autopairs")
+
 	-- Find Stuff
 	use({
 		"nvim-telescope/telescope.nvim",

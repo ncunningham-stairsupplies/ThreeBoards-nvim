@@ -45,6 +45,10 @@ return require("packer").startup(function()
 	-- autopairs
 	use("windwp/nvim-autopairs")
 
+	--comment
+	use("JoosepAlviste/nvim-ts-context-commentstring")
+	use("numToStr/Comment.nvim")
+
 	-- Find Stuff
 	use({
 		"nvim-telescope/telescope.nvim",

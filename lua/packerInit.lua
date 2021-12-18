@@ -24,6 +24,9 @@ return require("packer").startup(function()
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 
+	-- Which-Key Stuff
+	use("folke/which-key.nvim")
+
 	-- TreeSitter Stuff
 	use({
 		"nvim-treesitter/nvim-treesitter",

@@ -8,69 +8,53 @@ function M.map(mode, lhs, rhs, opts)
 	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-function M.isGoodBinding(extend_required_keys, binding)
-	local goodBind = true
+function M.is_good_binding(extend_required_keys, binding)
 	for _, v in pairs(extend_required_keys) do
 		if binding[v] == nil then
-			goodBind = false
+			return false
 		end
 	end
-	return goodBind
+	return true
 end
 
 function M.tbl_extend_merge(left, right, extend_required_keys)
-	local newTable = left
-
-	--merge
-	for groupName, group in pairs(left) do
-		for bindingName, binding in pairs(group) do
-			if right[groupName] then
-				if right[groupName][bindingName] then
-					local leftKeys = vim.tbl_keys(binding)
-					local rightKeys = vim.tbl_keys(right[groupName][bindingName])
-
-					for keyName, key in pairs(leftKeys) do
-						if right[groupName][bindingName][key] ~= nil then
-							newTable[groupName][bindingName][key] = right[groupName][bindingName][key]
-						end
-					end
-				end
-			end
-		end
-	end
-
-	--extend
 	for groupName, group in pairs(right) do
-		-- Just copy over the right side group if it doesn't exist already
-		if left[groupName] == nil then
-			local goodGroup = true
+		-- Check to see if the group exists in left
+		if left[groupName] ~= nil then
+			-- If it does, check the bindings
 			for bindingName, binding in pairs(group) do
-				local goodBind = M.isGoodBinding(extend_required_keys, binding)
-				if goodBind == false then
-					goodGroup = false
-				end
-			end
-			if goodGroup == true then
-				newTable[groupName] = right[groupName]
-			else
-				vim.notify("Keybinding Error. Keys Missing In " .. groupName .. "--" .. bindingName)
-			end
-		else
-			-- Loop through bindings to see if any need to be added
-			for bindingName, binding in pairs(group) do
-				if left[groupName][bindingName] == nil then
-					local goodBind = M.isGoodBinding(extend_required_keys, binding)
-					if goodBind then
-						newTable[groupName][bindingName] = right[groupName][bindingName]
+				-- Check if it exists
+				if left[groupName][bindingName] ~= nil then
+					-- If it exists, merge the overwritten keys
+					for k, v in pairs(binding) do
+						left[groupName][bindingName][k] = v
+					end
+				else
+					-- If it doesn't exist, make sure it's good
+					if M.is_good_binding(extend_required_keys, binding) then
+						-- If it's good, add it
+						left[groupName][bindingName] = binding
 					else
+						-- Throw an error
 						vim.notify("Keybinding Error. Keys Missing In " .. groupName .. "--" .. bindingName, 1)
 					end
 				end
 			end
+			-- If the group doesn't exist...
+		else
+			-- Add the group
+			left[groupName] = {}
+			-- Loop thrugh the bindings and add any good ones
+			for bindingName, binding in pairs(group) do
+				if M.is_good_binding(extend_required_keys, binding) then
+					left[groupName][bindingName] = binding
+				else
+					vim.notify("Keybinding Error. Keys Missing In " .. groupName .. "--" .. bindingName, 1)
+				end
+			end
 		end
 	end
-
-	return newTable
+	return left
 end
 
 return M

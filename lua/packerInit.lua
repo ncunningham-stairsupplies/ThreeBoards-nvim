@@ -18,6 +18,7 @@ return require("packer").startup(function()
 	-- lsp stuff
 	use({
 		"neovim/nvim-lspconfig",
+		"williamboman/nvim-lsp-installer",
 	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",

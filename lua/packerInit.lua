@@ -24,6 +24,7 @@ return require("packer").startup(function()
 		"jose-elias-alvarez/null-ls.nvim",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
+	use("jose-elias-alvarez/nvim-lsp-ts-utils")
 
 	-- Which-Key Stuff
 	use("folke/which-key.nvim")

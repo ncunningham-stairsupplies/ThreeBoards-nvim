@@ -78,6 +78,12 @@ return require("packer").startup(function()
 		"jacoborus/tender.vim",
 	})
 
+	-- DB stuff
+	use({
+		"tpope/vim-dadbod",
+		"kristijanhusak/vim-dadbod-ui",
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

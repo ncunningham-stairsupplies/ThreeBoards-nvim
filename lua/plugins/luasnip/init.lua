@@ -1,4 +1,7 @@
-local ls = require('luasnip')
+local ok, ls = pcall(require, "luasnip")
+if not ok then
+	return
+end
 -- some shorthands...
 --[[ local s = ls.snippet
 local sn = ls.snippet_node
@@ -10,14 +13,14 @@ local d = ls.dynamic_node ]]
 
 -- Every unspecified option will be set to the default.
 ls.config.set_config({
-  history = true,
-  -- Update more often, :h events for more info.
-  updateevents = 'TextChanged,TextChangedI',
+	history = true,
+	-- Update more often, :h events for more info.
+	updateevents = "TextChanged,TextChangedI",
 })
 
 ls.snippets = {
-  all = {},
-  html = {},
+	all = {},
+	html = {},
 }
 
 -- enable html snippets in javascript/javascript(REACT)
@@ -27,4 +30,4 @@ ls.snippets.typescriptreact = ls.snippets.html
 -- require('luasnip/loaders/from_vscode').load({ include = { 'html' } })
 
 -- You can also use lazy loading so you only get in memory snippets of languages you use
-require('luasnip/loaders/from_vscode').lazy_load({ include = { 'html' } })
+require("luasnip/loaders/from_vscode").lazy_load({ include = { "html" } })

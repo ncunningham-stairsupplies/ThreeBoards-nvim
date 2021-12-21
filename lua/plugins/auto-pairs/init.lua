@@ -1,7 +1,19 @@
-require('nvim-autopairs').setup({
-  disable_filetype = { 'TelescopePrompt', 'vim' },
+local pairs_installed, pairs = pcall(require, "nvim-autopairs")
+if not pairs_installed then
+	return
+end
+pairs.setup({
+	disable_filetype = { "TelescopePrompt", "vim" },
 })
 
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-local cmp = require('cmp')
-cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done({ map_char = { tex = '' } }))
+local cmpPairs_ok, cmp_autopairs = pcall(require, "nvim-autopairs.completion.cmp")
+if not cmpPairs_ok then
+	return
+end
+
+local ok, cmp = pcall(require, "cmp")
+if not ok then
+	return
+end
+
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))

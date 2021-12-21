@@ -55,6 +55,21 @@ local core_mappings = {
 			keybind = "<leader>ld",
 			command = "<cmd>lua vim.diagnostic.open_float()<CR>",
 		},
+		organize_imports = {
+			mode = "n",
+			keybind = "<leader>lso",
+			command = ":TSLspOrganize<CR>",
+		},
+		rename_file = {
+			mode = "n",
+			keybind = "<leader>lsr",
+			command = ":TSLspRenameFile<CR>",
+		},
+		import_all = {
+			mode = "n",
+			keybind = "<leader>lsi",
+			command = ":TSLspImportAll<CR>",
+		},
 		type_definition = {
 			mode = "n",
 			keybind = "<leader>D",

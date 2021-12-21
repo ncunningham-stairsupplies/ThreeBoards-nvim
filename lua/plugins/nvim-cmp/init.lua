@@ -3,10 +3,15 @@ if not ok then
 	return
 end
 
+local snip_ok, luasnip = pcall(require, "luasnip")
+if not snip_ok then
+	return
+end
+
 cmp.setup({
 	snippet = {
 		expand = function(args)
-			require("luasnip").lsp_expand(args.body)
+			luasnip.lsp_expand(args.body)
 		end,
 	},
 	mapping = {
@@ -18,6 +23,8 @@ cmp.setup({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
+		["<Tab>"] = cmp.mapping.confirm({ select = true }),
+
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
 		["<CR>"] = cmp.mapping.confirm({ select = true }),

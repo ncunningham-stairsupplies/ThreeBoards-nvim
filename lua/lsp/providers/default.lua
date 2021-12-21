@@ -31,4 +31,7 @@ M.handlers = {
 }
 
 M.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
+M.flags = {
+	debounce_text_changes = 150,
+}
 return M

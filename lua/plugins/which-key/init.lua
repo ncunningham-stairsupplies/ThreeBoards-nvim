@@ -4,3 +4,9 @@ if not ok then
 end
 
 which_key.setup({})
+
+which_key.register({
+	f = {
+		name = "find",
+	},
+}, { prefix = "<leader>" })

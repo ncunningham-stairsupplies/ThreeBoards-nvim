@@ -102,3 +102,5 @@ for _, group in pairs(mappings) do
 		map(binding.mode, binding.keybind, binding.command)
 	end
 end
+
+return mappings

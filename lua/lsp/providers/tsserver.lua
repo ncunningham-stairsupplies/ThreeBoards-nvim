@@ -44,4 +44,5 @@ require("lspconfig").tsserver.setup({
 		defaults.on_attach(client, bufnr)
 	end,
 	handlers = defaults.handlers,
+	flags = defaults.flags,
 })

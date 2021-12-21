@@ -1,4 +1,8 @@
-require("Comment").setup({
+local ok, comment = pcall(require, "Comment")
+if not ok then
+	return
+end
+comment.setup({
 	pre_hook = function(ctx)
 		-- Only calculate commentstring for tsx filetypes
 		if vim.bo.filetype == "typescriptreact" then

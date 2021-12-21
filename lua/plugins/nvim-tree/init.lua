@@ -1,6 +1,11 @@
 require("plugins.nvim-tree.mappings")
 local icons = require("theme.icons")
 
+local ok, nvim_tree = pcall(require, "nvim-tree")
+if not ok then
+	return
+end
+
 vim.opt.termguicolors = true
 
 vim.g.nvim_tree_icons = {
@@ -16,7 +21,7 @@ vim.g.nvim_tree_icons = {
 		error = icons.error,
 	},
 }
-require("nvim-tree").setup({
+nvim_tree.setup({
 	auto_close = true,
 	diagnostics = {
 		enable = true,

@@ -77,6 +77,7 @@ return require("packer").startup(function()
 		"wuelnerdotexe/vim-enfocado",
 		"overcache/NeoSolarized",
 		"jacoborus/tender.vim",
+		"rebelot/kanagawa.nvim",
 	})
 
 	-- DB stuff

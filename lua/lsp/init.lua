@@ -1,2 +1,2 @@
-require('lsp.providers')
-require('lsp.mappings')
+require("lsp.providers")
+require("lsp.mappings")

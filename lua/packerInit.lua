@@ -51,6 +51,9 @@ return require("packer").startup(function()
 	-- autopairs
 	use("windwp/nvim-autopairs")
 
+	--git stuff
+	use("lewis6991/gitsigns.nvim")
+
 	--comment
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use("numToStr/Comment.nvim")

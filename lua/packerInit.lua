@@ -29,6 +29,9 @@ return require("packer").startup(function()
 	-- Which-Key Stuff
 	use("folke/which-key.nvim")
 
+	-- Lightsped stuff
+	use("ggandor/lightspeed.nvim")
+
 	-- TreeSitter Stuff
 	use({
 		"nvim-treesitter/nvim-treesitter",

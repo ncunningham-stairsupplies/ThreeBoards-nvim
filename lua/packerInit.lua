@@ -19,6 +19,7 @@ return require("packer").startup(function()
 	use({
 		"neovim/nvim-lspconfig",
 		"williamboman/nvim-lsp-installer",
+		"ray-x/lsp_signature.nvim",
 	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",

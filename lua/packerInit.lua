@@ -26,6 +26,7 @@ return require("packer").startup(function()
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 	use("jose-elias-alvarez/nvim-lsp-ts-utils")
+	use("simrat39/rust-tools.nvim")
 
 	-- Which-Key Stuff
 	use("folke/which-key.nvim")

@@ -38,7 +38,7 @@ local user_mappings = {
 			keybind = "<leader>D",
 		},
 		rename = {
-			keybin d= "<leader>rn",
+			keybind = "<leader>rn",
 		},
 		diagnostic_prev = {
 			keybind = "[d",

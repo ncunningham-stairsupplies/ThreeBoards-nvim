@@ -33,6 +33,9 @@ return require("packer").startup(function()
 	-- Lightsped stuff
 	use("ggandor/lightspeed.nvim")
 
+	-- Scroll smoothing
+	use("karb94/neoscroll.nvim")
+
 	-- TreeSitter Stuff
 	use({
 		"nvim-treesitter/nvim-treesitter",

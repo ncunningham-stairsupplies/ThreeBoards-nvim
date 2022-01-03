@@ -42,7 +42,7 @@ local core_mappings = {
 		},
 		format = {
 			mode = "n",
-			keybind = "<leader>la",
+			keybind = "<leader>lf",
 			command = "<cmd>lua vim.lsp.buf.formatting()<CR>",
 		},
 		code_action = {

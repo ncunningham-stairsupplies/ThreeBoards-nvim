@@ -80,6 +80,9 @@ return require("packer").startup(function()
 		},
 	})
 
+	-- Find functions
+	use("stevearc/aerial.nvim")
+
 	-- status bar
 	use("nvim-lualine/lualine.nvim")
 

@@ -13,6 +13,9 @@ M.on_attach = function(client, bufnr)
 		vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
 	end
 
+	-- Load Aerial
+	require("aerial").on_attach(client, bufnr)
+
 	-- Load mappings
 	--require("lsp.mappings")
 end

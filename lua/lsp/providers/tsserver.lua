@@ -1,6 +1,7 @@
 local defaults = require("lsp.providers.default")
 -- sh
 -- npm install -g typescript typescript-language-server
+-- npm install -g @fsouza/prettierd
 require("lspconfig").tsserver.setup({
 	on_attach = function(client, bufnr)
 		client.resolved_capabilities.document_formatting = false

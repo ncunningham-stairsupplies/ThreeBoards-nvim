@@ -1,15 +1,22 @@
-require("plugins/nvim-tree")
-require("plugins/treesitter")
-require("plugins/telescope")
-require("plugins/nvim-cmp")
-require("plugins/auto-pairs")
-require("plugins/comment")
-require("plugins/lualine")
-require("plugins/which-key")
-require("plugins/dadbod")
-require("plugins/gitsigns")
-require("plugins/lightspeed")
-require("plugins/lsp_signature")
-require("plugins/neoscroll")
-require("plugins/aerial")
--- require("plugins/rust-tools")
+local plugins = {
+	"nvim-tree",
+	"treesitter",
+	"telescope",
+	"nvim-cmp",
+	"auto-pairs",
+	"comment",
+	"lualine",
+	"which-key",
+	"dadbod",
+	"gitsigns",
+	"lightspeed",
+	"lsp_signature",
+	"neoscroll",
+	"aerial",
+}
+
+for _, plugin in ipairs(plugins) do
+	pcall(require, "plugins/" .. plugin)
+end
+
+return plugins

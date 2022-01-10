@@ -100,6 +100,9 @@ return require("packer").startup(function()
 		"kristijanhusak/vim-dadbod-ui",
 	})
 
+	-- git stuff
+	use("tpope/vim-fugitive")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

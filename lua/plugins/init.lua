@@ -13,6 +13,7 @@ local plugins = {
 	"lsp_signature",
 	"neoscroll",
 	"aerial",
+	"fugitive",
 }
 
 for _, plugin in ipairs(plugins) do

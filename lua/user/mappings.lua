@@ -8,8 +8,6 @@ local user_mappings = {
 			command = "<cmd>lua vim.notify('poop yeet')<CR>",
 		},
 	},
-	nvim_tree = {},
-	telescope = {},
 }
 
 return user_mappings

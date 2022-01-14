@@ -14,7 +14,6 @@ local plugins = {
 	"neoscroll",
 	"aerial",
 	"fugitive",
-	"instant",
 }
 
 for _, plugin in ipairs(plugins) do

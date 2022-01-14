@@ -103,9 +103,6 @@ return require("packer").startup(function()
 	-- git stuff
 	use("tpope/vim-fugitive")
 
-	-- Pair programming
-	use("jbyuki/instant.nvim")
-
 	if packer_bootstrap then
 		require("packer").sync()
 	end

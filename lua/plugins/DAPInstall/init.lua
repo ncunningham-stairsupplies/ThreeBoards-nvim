@@ -5,4 +5,6 @@ if not ok then
 	return
 end
 
-DAPInstall.setup({})
+DAPInstall.setup({
+	installation_path = vim.fn.stdpath("data") .. "/dapinstall/",
+})

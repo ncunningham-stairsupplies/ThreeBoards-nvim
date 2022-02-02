@@ -1,5 +1,3 @@
-local map = require("utils").map
-
 local telescope = {
 	find_files = {
 		mode = "n",

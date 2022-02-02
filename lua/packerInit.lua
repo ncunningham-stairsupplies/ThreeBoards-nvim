@@ -103,6 +103,13 @@ return require("packer").startup(function()
 	-- git stuff
 	use("tpope/vim-fugitive")
 
+	-- Debug tools
+	use("mfussenegger/nvim-dap")
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
+	use("theHamsta/nvim-dap-virtual-text")
+	use("Pocco81/DAPInstall.nvim")
+	use("nvim-telescope/telescope-dap.nvim")
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

@@ -14,6 +14,11 @@ local plugins = {
 	"neoscroll",
 	"aerial",
 	"fugitive",
+	"nvim-dap",
+	"nvim-dap-ui",
+	"nvim-dap-virtual-text",
+	"DAPInstall",
+	"telescope-dap",
 }
 
 for _, plugin in ipairs(plugins) do

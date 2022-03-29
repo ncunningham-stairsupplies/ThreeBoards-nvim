@@ -23,7 +23,7 @@ cmp.setup({
 			i = cmp.mapping.abort(),
 			c = cmp.mapping.close(),
 		}),
-		["<Tab>"] = cmp.mapping.confirm({ select = true }),
+		-- ["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
 		-- Accept currently selected item. If none selected, `select` first item.
 		-- Set `select` to `false` to only confirm explicitly selected items.
@@ -36,7 +36,7 @@ cmp.setup({
 		{ name = "buffer" },
 	}),
 	experimental = {
-		ghost_text = true,
+		ghost_text = false,
 	},
 })
 

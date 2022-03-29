@@ -6,6 +6,8 @@ if not ok then
 	return
 end
 
+vim.cmd("autocmd BufEnter * ++nested if winnr('$') == 1 && bufname() == 'NvimTree_' . tabpagenr() | quit | endif")
+
 vim.opt.termguicolors = true
 
 vim.g.nvim_tree_icons = {
@@ -22,7 +24,6 @@ vim.g.nvim_tree_icons = {
 	},
 }
 nvim_tree.setup({
-	auto_close = true,
 	diagnostics = {
 		enable = true,
 	},

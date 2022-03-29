@@ -14,6 +14,8 @@ local plugins = {
 	"neoscroll",
 	"aerial",
 	"fugitive",
+	"nvim-dap",
+	"lspsaga",
 }
 
 for _, plugin in ipairs(plugins) do

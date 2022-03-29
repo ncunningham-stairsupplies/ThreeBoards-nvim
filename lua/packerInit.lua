@@ -20,6 +20,7 @@ return require("packer").startup(function()
 		"neovim/nvim-lspconfig",
 		"williamboman/nvim-lsp-installer",
 		"ray-x/lsp_signature.nvim",
+		"glepnir/lspsaga.nvim",
 	})
 	use({
 		"jose-elias-alvarez/null-ls.nvim",
@@ -102,6 +103,9 @@ return require("packer").startup(function()
 
 	-- git stuff
 	use("tpope/vim-fugitive")
+
+	-- debugging
+	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
 	if packer_bootstrap then
 		require("packer").sync()

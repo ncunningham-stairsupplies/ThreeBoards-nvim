@@ -1,8 +1,0 @@
-require("lsp.providers.tsserver")
-require("lsp.providers.null_ls")
-require("lsp.providers.eslint")
-require("lsp.providers.gopls")
-require("lsp.providers.sumneko")
-require("lsp.providers.rust")
-require("lsp.providers.graphql")
-require("lsp.providers.tailwindcss")

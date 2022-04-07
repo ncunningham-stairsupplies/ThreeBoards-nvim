@@ -107,6 +107,8 @@ return require("packer").startup(function()
 	-- debugging
 	use({ "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } })
 
+	use {"ellisonleao/glow.nvim"}
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

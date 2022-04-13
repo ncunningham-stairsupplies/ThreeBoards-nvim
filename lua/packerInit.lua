@@ -109,6 +109,8 @@ return require("packer").startup(function()
 
 	use {"ellisonleao/glow.nvim"}
 
+	use ('ojroques/vim-oscyank')
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end

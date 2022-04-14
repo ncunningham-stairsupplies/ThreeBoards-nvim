@@ -19,7 +19,7 @@ treesitter.setup({
 		use_languagetree = true,
 	},
 	indent = {
-		enable = true,
+		enable = false,
 	},
 	autotag = {
 		enable = true,

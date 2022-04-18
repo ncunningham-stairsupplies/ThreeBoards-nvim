@@ -32,6 +32,7 @@ vim.g.clipboard = {
     ["*"] = paste
   }
 }
+
 local plugin_mappings = {}
 -- load all plugin mappings that are defined
 for _, plugin_name in ipairs(plugins) do
